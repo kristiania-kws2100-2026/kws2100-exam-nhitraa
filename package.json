@@ -1,0 +1,36 @@
+{
+  "name": "kws2100-exam-nhitraa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc --noEmit && prettier --check .",
+    "dev": "vite",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristiania-kws2100-2026/kws2100-exam-nhitraa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/kristiania-kws2100-2026/kws2100-exam-nhitraa/issues"
+  },
+  "homepage": "https://github.com/kristiania-kws2100-2026/kws2100-exam-nhitraa#readme",
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "husky": "^9.1.7",
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.9"
+  },
+  "dependencies": {
+    "ol": "^10.9.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  }
+}

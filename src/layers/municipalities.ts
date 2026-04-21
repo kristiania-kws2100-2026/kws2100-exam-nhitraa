@@ -1,6 +1,6 @@
 import VectorLayer from "ol/layer/Vector.js";
 import VectorSource from "ol/source/Vector.js";
-import GeoJSON from "ol/format/geoJSON.js";
+import GeoJSON from "ol/format/GeoJSON.js";
 import { Style, Stroke } from "ol/style.js";
 
 const municipalitiesSource = new VectorSource({

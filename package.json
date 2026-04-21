@@ -6,7 +6,7 @@
   "scripts": {
     "test": "tsc --noEmit && prettier --check .",
     "dev": "vite",
-    "start": "tsx server/server.ts",
+    "start": "npm --prefix server run start",
     "build": "vite build",
     "prepare": "husky",
     "postinstall": "npm --prefix server install"

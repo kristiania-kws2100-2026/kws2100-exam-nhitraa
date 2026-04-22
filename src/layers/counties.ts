@@ -16,9 +16,7 @@ const countiesStyle = new Style({
     color: "rgba(22,52,151,0.8)",
     width: 2,
   }),
-  fill: new Fill({
-    color: "rgba(173, 216, 230, 0.3)",
-  }),
+  fill: new Fill({ color: "rgba(155,180,188,0.2)" }),
 });
 
 export const countiesLayer = new VectorLayer({

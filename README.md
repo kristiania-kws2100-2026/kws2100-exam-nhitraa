@@ -6,21 +6,25 @@
 
 ## About the Application
 
-This web mapping application visualizes traffic accidents, tunnels, road networks in Norway, along with fire station and hospital locations. The purpose is to analyze the proximity of fire stations to accident sites and evaluate emergency response coverage.
+This web mapping application visualizes traffic accidents and road infrastructure in Norway, including road networks, tunnels, municipalities and counties. The purpose of the application is to explore where accidents occur, identify accident-prone road areas, and examine emergency response coverage across the country.
 
-By including road networks and tunnels, the application provides better insight into where accidents occur. The visualization makes it easier to identify accident prone areas in relation to transportation infrastructure. By combining traffic accidents with fire station locations, hospitals and road network, users can explore the emergency response coverage and accesibility across all municipalities and counties.
+By combining traffic accident data with road infrastructure, the application allows users to analyze patterns in where accidents happen. Each accident includes additional attributes such as date, type of accident, speed limit, lighting conditions (daylight, dark with lighting, dark without lighting), and number of vehicles involved. This makes it possible to explore how different factors may influence accident occurrence and severity.
 
-Due to lack of data on ambulance station locations, hospitals were used as an alternative to represent medical emergency response.
+In addition, fire stations and hospitals are included as contextual layers to explore how well different areas are covered by emergency services. This allows users to assess accessibility and proximity to emergency response resources in relation to accident locations.
+
+Rather than only displaying accident locations, the application supports exploration of clusters and patterns across different regions, helping highlight areas with higher accident density and potential risk factors.
 
 ## Features
 
-- Display of polygons and points from 6 data sources
+- Display of polygons, lines and points from 6 data sources
 - Municipality and county borders for geographic context
-- Clustered style for traffic accidents and fire stations
-- Click on fire stations, hospitals or traffic accidents to view a popup with information
-- Road network and tunnels displayed to show where accidents occur
-- Overview map in the bottom left corner for easy navigation
-- Table overview in the bottom right showing all datasets and their colors
+- Clustered visualization of traffic accidents, where cluster size reflects the number of accidents in that area
+- Single accident features are styled based on lighting conditions (daylight, dark with lighting, dark without lighting)
+- Click interaction showing detailed information about each accident (including date, type, speed limit, lighting conditions and number of vehicles)
+- Road network and tunnels displayed to provide context for accident locations
+- Fire stations and hospitals included as contextual layers for emergency response coverage
+- Overview map in the bottom left corner for navigation
+- Table overview in the bottom right showing datasets and their symbology
 
 ## Overview of datasets
 
@@ -50,4 +54,5 @@ Due to lack of data on ambulance station locations, hospitals were used as an al
 
 We divided the data sources evenly between us, so that everyone can contribute equally to the project. We both worked on seperate branches to keep the code organized and reviewed each other's code to ensure it is right.
 
-One team member was responsible for setting up the project structure. This included creating the react application, intergrating the OpenLayers map and deploying the application using Render. Although one member handled the project setup, both participated equally in the development. The other team member worked with implementing additional functionality using the data sources.
+One team member was responsible for setting up the project structure. This included creating the react application, intergrating the OpenLayers map and deploying the application using Render. Although one member handled the project setup, both participated equally in the development. The other team member focused on implementing additional functionality, such as integrating multiple data sources, styling layers, and adding interactivity.
+Although we had different primary responsibilities, we collaborated closely throughout the development process and contributed to both the implementation and refinement of the application.

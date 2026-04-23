@@ -17,7 +17,6 @@ Due to lack of data on ambulance station locations, hospitals were used as an al
 - Display of polygons and points from 6 data sources
 - Municipality and county borders for geographic context
 - Clustered style for traffic accidents and fire stations
-- Fire stations and hospitals displayed as points to show emergency response and availability
 - Click on fire stations, hospitals or traffic accidents to view a popup with information
 - Road network and tunnels displayed to show where accidents occur
 - Overview map in the bottom left corner for easy navigation

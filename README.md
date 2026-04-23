@@ -6,7 +6,7 @@
 
 ## About the Application
 
-This web mapping application visualizes traffic accidents, tunnels, road networks, and roadblocks in Norway, along with fire stations. The purpose is to analyze the proximity of fire stations to accident sites and evaluate emergency response coverage.
+This web mapping application visualizes traffic accidents, tunnels, road networks in Norway, along with fire stations. The purpose is to analyze the proximity of fire stations to accident sites and evaluate emergency response coverage.
 
 By including road networks and tunnels, the application provides better insight into where accidents occur. The visualization makes it easier to identify accident prone areas in relation to transportation infrastructure. By combining traffic accidents with fire station locations and road network, users can explore the emergency response coverage and accesibility across all municipalities and counties.
 
@@ -26,8 +26,7 @@ Due to lack of data on ambulance station locations, the emergency response cover
 - Counties - dark blue polygon
 - Traffic accidents - point
 - Firestations - red point
-- Tunnels - linestring
-- Road network and roadblocks - linestring
+- Road network
 
 ## Data sources
 
@@ -37,11 +36,9 @@ Due to lack of data on ambulance station locations, the emergency response cover
 
 - Traffic accidents - https://kartkatalog.geonorge.no/metadata/trafikkulykker/2c47f033-b877-4885-a0ea-50333afd8fab?search=trafikk
 
-- Road network and roadblocks - https://kartkatalog.geonorge.no/metadata/vegnett2-wms/302fcb0e-a7dc-44f4-a336-8c9ee9709d73
+- Road network - https://www.geonorge.no/
 
 - Fire stations - https://kart.dsb.no/
-
-- Tunnels - https://kart.dsb.no/
 
 ## Work Process
 

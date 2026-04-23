@@ -17,6 +17,7 @@ import {
 } from "./components/Popup.js";
 import type { FeatureLike } from "ol/Feature.js";
 import OverviewMap from "ol/control/OverviewMap.js";
+import { roadsLayer } from "./layers/roads.js";
 
 useGeographic();
 
@@ -31,6 +32,7 @@ const map = new Map({
     new TileLayer({ source: new OSM() }),
     municipalitiesLayer,
     countiesLayer,
+    roadsLayer,
     accidentsLayer,
     firestationsLayer,
   ],

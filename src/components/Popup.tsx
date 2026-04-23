@@ -15,7 +15,13 @@ export type AccidentPopup = {
   antallEnheter: number;
 };
 
-export type PopupData = FirestationPopup | AccidentPopup;
+export type HospitalPopup = {
+  type: "hospital";
+  name: string;
+  operator: string;
+};
+
+export type PopupData = FirestationPopup | AccidentPopup | HospitalPopup;
 
 interface PopupProps {
   popup: PopupData;
@@ -26,6 +32,12 @@ export function Popup({ popup, onClose }: PopupProps) {
   return (
     <div className="popup">
       <button onClick={onClose}>X</button>
+      {popup.type === "hospital" && (
+        <>
+          <h3>{popup.name}</h3>
+          {popup.operator && <p>{popup.operator}</p>}
+        </>
+      )}
       {popup.type === "firestation" && (
         <>
           <h3>{popup.navn}</h3>

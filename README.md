@@ -40,6 +40,8 @@ Due to lack of data on ambulance station locations, the emergency response cover
 
 - Fire stations - https://kart.dsb.no/
 
+- Hospitals - https://www.openstreetmap.org
+
 ## Work Process
 
 We divided the data sources evenly between us, so that everyone can contribute equally to the project. We both worked on seperate branches to keep the code organized and reviewed each other's code to ensure it is right.

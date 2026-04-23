@@ -10,14 +10,11 @@ import { municipalitiesLayer } from "./layers/municipalities.js";
 import { countiesLayer } from "./layers/counties.js";
 import { firestationsLayer } from "./layers/firestations.js";
 import { accidentsLayer } from "./layers/accidents.js";
-import {
-  type AccidentPopup,
-  type FirestationPopup,
-  Popup,
-} from "./components/Popup.js";
+import { Popup, type PopupData } from "./components/Popup.js";
 import type { FeatureLike } from "ol/Feature.js";
 import OverviewMap from "ol/control/OverviewMap.js";
 import { roadsLayer } from "./layers/roads.js";
+import { hospitalsLayer } from "./layers/hospitals.js";
 
 useGeographic();
 
@@ -34,6 +31,7 @@ const map = new Map({
     countiesLayer,
     roadsLayer,
     accidentsLayer,
+    hospitalsLayer,
     firestationsLayer,
   ],
 });
@@ -41,18 +39,36 @@ const map = new Map({
 export function Application() {
   const mapRef = useRef<HTMLDivElement | null>(null);
 
-  const [popup, setPopup] = useState<AccidentPopup | FirestationPopup | null>(
-    null,
-  );
+  const [popup, setPopup] = useState<PopupData | null>(null);
 
   useEffect(() => {
     map.setTarget(mapRef.current!);
     map.addControl(overviewMap);
 
+    map.on("pointermove", (e) => {
+      const hit = map.forEachFeatureAtPixel(e.pixel, (feature, layer) => {
+        if (layer === hospitalsLayer) return true;
+        const clustered = feature.get("features");
+        return clustered?.length === 1;
+      });
+      map.getTargetElement().style.cursor = hit ? "pointer" : "";
+    });
+
     map.on("click", (e) => {
       let found = false;
-      map.forEachFeatureAtPixel(e.pixel, (feature) => {
+      map.forEachFeatureAtPixel(e.pixel, (feature, layer) => {
         if (found) return;
+
+        if (layer === hospitalsLayer) {
+          found = true;
+          setPopup({
+            type: "hospital",
+            name: feature.get("name"),
+            operator: feature.get("operator"),
+          });
+          return;
+        }
+
         const clustered = feature.get("features") as FeatureLike[];
         if (!clustered || clustered.length !== 1) return;
         const clusterProps = clustered[0]!.getProperties();

@@ -15,7 +15,7 @@ function firestationsStyle(feature: FeatureLike) {
     image: new RegularShape({
       points: 4,
       radius,
-      angle: Math.PI / 4,
+      angle: 0,
       fill: new Fill({ color: "rgba(255,60,60,0.75)" }),
       stroke: new Stroke({ color: "#fff", width: 1.5 }),
     }),

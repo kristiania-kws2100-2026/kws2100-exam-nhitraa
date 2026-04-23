@@ -1,0 +1,23 @@
+.popup {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  min-width: 220px;
+}
+
+.popup button {
+  float: right;
+  cursor: pointer;
+}
+
+.popup h3 {
+  margin: 0 0 8px;
+}
+
+.popup p {
+  margin: 4px 0;
+}

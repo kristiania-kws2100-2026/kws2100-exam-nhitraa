@@ -4,10 +4,18 @@ import TileLayer from "ol/layer/Tile.js";
 import { OSM } from "ol/source.js";
 import { useGeographic } from "ol/proj.js";
 import "ol/ol.css";
+import "./application.css";
 
 import { municipalitiesLayer } from "./layers/municipalities.js";
 import { countiesLayer } from "./layers/counties.js";
 import { firestationsLayer } from "./layers/firestations.js";
+import { accidentsLayer } from "./layers/accidents.js";
+import {
+  type AccidentPopup,
+  type FirestationPopup,
+  Popup,
+} from "./components/Popup.js";
+import type { FeatureLike } from "ol/Feature.js";
 
 useGeographic();
 
@@ -17,6 +25,7 @@ const map = new Map({
     new TileLayer({ source: new OSM() }),
     municipalitiesLayer,
     countiesLayer,
+    accidentsLayer,
     firestationsLayer,
   ],
 });
@@ -24,54 +33,51 @@ const map = new Map({
 export function Application() {
   const mapRef = useRef<HTMLDivElement | null>(null);
 
-  const [popup, setPopup] = useState<{
-    navn: string;
-    brannvesen: string;
-    kasernert: string;
-  } | null>(null);
+  const [popup, setPopup] = useState<AccidentPopup | FirestationPopup | null>(
+    null,
+  );
 
   useEffect(() => {
     map.setTarget(mapRef.current!);
 
     map.on("click", (e) => {
+      let found = false;
       map.forEachFeatureAtPixel(e.pixel, (feature) => {
-        const props = feature.getProperties();
-        if (props.brannstasj) {
+        if (found) return;
+        const clustered = feature.get("features") as FeatureLike[];
+        if (!clustered || clustered.length !== 1) return;
+        const clusterProps = clustered[0]!.getProperties();
+
+        if (clusterProps.brannstasj) {
+          found = true;
           setPopup({
-            navn: props.brannstasj,
-            brannvesen: props.brannvesen,
+            type: "firestation",
+            navn: clusterProps.brannstasj,
+            brannvesen: clusterProps.brannvesen,
             kasernert:
-              props.kasernert === "IK" ? "Ikke kasernert" : "Kasernert",
+              clusterProps.kasernert === "IK" ? "Ikke kasernert" : "Kasernert",
+          });
+        } else if (clusterProps.ulykkesdato) {
+          found = true;
+          setPopup({
+            type: "accident",
+            dato: clusterProps.ulykkesdato,
+            ukedag: clusterProps.ukedag,
+            uhellskode: clusterProps.uhellskode,
+            fartsgrense: clusterProps.fartsgrense,
+            lysforhold: clusterProps.lysforhold,
+            antallEnheter: clusterProps.antallEnheter,
           });
         }
       });
+      if (!found) setPopup(null);
     });
   }, []);
 
   return (
     <div style={{ position: "relative" }}>
       <div ref={mapRef} style={{ width: "100vw", height: "100vh" }} />
-      {popup && (
-        <div
-          style={{
-            position: "absolute",
-            top: 20,
-            right: 20,
-            background: "rgba(255,255,255,0.6)",
-            padding: "16px",
-            borderRadius: "8px",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
-            minWidth: "200px",
-          }}
-        >
-          <button onClick={() => setPopup(null)} style={{ float: "right" }}>
-            ✕
-          </button>
-          <h3>🚒 {popup.navn} </h3>
-          <p>{popup.brannvesen}</p>
-          <p>{popup.kasernert}</p>
-        </div>
-      )}
+      {popup && <Popup popup={popup} onClose={() => setPopup(null)} />}
     </div>
   );
 }

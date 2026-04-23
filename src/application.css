@@ -61,3 +61,17 @@
 .info-overlay-dot-diamond {
   transform: rotate(45deg);
 }
+
+.info-overlay-icon {
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info-overlay-line {
+  width: 18px;
+  height: 3px;
+  border-radius: 2px;
+}

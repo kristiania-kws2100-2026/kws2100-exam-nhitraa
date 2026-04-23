@@ -30,7 +30,7 @@ Due to lack of data on ambulance station locations, hospitals were used as an al
 - Firestations - red clustered point
 - Hospitals - blue point
 - Road network - orange line
-- Tunnel - green line
+- Tunnels - green line
 
 ## Data sources
 
@@ -40,7 +40,7 @@ Due to lack of data on ambulance station locations, hospitals were used as an al
 
 - Traffic accidents - https://kartkatalog.geonorge.no/metadata/trafikkulykker/2c47f033-b877-4885-a0ea-50333afd8fab?search=trafikk
 
-- Road network - https://wms.geonorge.no/skwms1/wms.vegnett2?service=WMS&request=GetCapabilities
+- Road network/tunnels - https://wms.geonorge.no/skwms1/wms.vegnett2?service=WMS&request=GetCapabilities
 
 - Fire stations - https://kart.dsb.no/
 

@@ -5,7 +5,16 @@
 **Repository:** https://github.com/kristiania-kws2100-2026/kws2100-exam-nhitraa
 
 ## About the Application
-This web mapping application visualizes traffic accidents, road networks, and tunnels in Norway, along with fire stations. This is to analyze the proximity of fire stations to accident sites. By combining traffic accident data with fire station locations, users can explore the relationship between accident prone areas and emergency response coverage across all counties and municipalites.  
+This web mapping application visualizes traffic accidents, tunnels, road networks, and roadblocks in Norway, along with fire stations. The purpose is to analyze the proximity of fire stations to accident sites and evaluate emergency response coverage. 
+
+By including road networks and tunnels, the application provides better insight into where accidents occur. The visualization makes it easier to identify accident prone aread in relation to transportation infrastructure. By combining traffic accidents with fire station locations and road network, users can explore the emergency response coverage and accesibility across all municipalities and counties. 
+
+## Features
+- Display of polygons and points from 6 data sources
+- Municipality and county borders for geographic context
+- Clustered style for traffic accidents and fire stations
+- Click on a fire station and traffic accidents to view a popup with information
+- Sidebar to toggle visibility of traffic accidents and fire stations
 
 ## Data Sources
 Counties - https://kartkatalog.geonorge.no/metadata/administrative-enheter-fylker/6093c8a8-fa80-11e6-bc64-92361f002671?search=fylker
@@ -19,13 +28,6 @@ Road network and roadblocks - https://kartkatalog.geonorge.no/metadata/vegnett2-
 Fire stations - https://kart.dsb.no/
 
 Tunnels - https://kart.dsb.no/
-
-## Features
-- Display of polygons and points from 6 data sources
-- Municipality and county borders for geographic context
-- Clustered style for traffic accidents and fire stations
-- Click on a fire station and traffic accidents to view a popup with information
-- Sidebar to toggle visibility of traffic accidents and fire stations
 
 ## Work Process
 ...

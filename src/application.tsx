@@ -16,8 +16,14 @@ import {
   Popup,
 } from "./components/Popup.js";
 import type { FeatureLike } from "ol/Feature.js";
+import OverviewMap from "ol/control/OverviewMap.js";
 
 useGeographic();
+
+const overviewMap = new OverviewMap({
+  collapsed: false,
+  layers: [new TileLayer({ source: new OSM() })],
+});
 
 const map = new Map({
   view: new View({ center: [10.7, 59.9], zoom: 8 }),
@@ -39,6 +45,7 @@ export function Application() {
 
   useEffect(() => {
     map.setTarget(mapRef.current!);
+    map.addControl(overviewMap);
 
     map.on("click", (e) => {
       let found = false;

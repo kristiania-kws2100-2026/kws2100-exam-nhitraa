@@ -15,6 +15,7 @@ import type { FeatureLike } from "ol/Feature.js";
 import OverviewMap from "ol/control/OverviewMap.js";
 import { roadsLayer } from "./layers/roads.js";
 import { hospitalsLayer } from "./layers/hospitals.js";
+import { InfoOverlay } from "./components/InfoOverlay.js";
 
 useGeographic();
 
@@ -103,6 +104,7 @@ export function Application() {
     <div style={{ position: "relative" }}>
       <div ref={mapRef} style={{ width: "100vw", height: "100vh" }} />
       {popup && <Popup popup={popup} onClose={() => setPopup(null)} />}
+      <InfoOverlay />
     </div>
   );
 }

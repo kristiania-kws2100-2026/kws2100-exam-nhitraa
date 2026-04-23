@@ -50,7 +50,7 @@ const accidentsSource = new VectorSource({
 
 const clusterSource = new ClusterSource({
   source: accidentsSource,
-  distance: 30,
+  distance: 80,
 });
 
 export const accidentsLayer = new VectorLayer({

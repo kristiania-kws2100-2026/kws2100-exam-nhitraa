@@ -6,27 +6,32 @@
 
 ## About the Application
 
-This web mapping application visualizes traffic accidents, tunnels, road networks in Norway, along with fire stations. The purpose is to analyze the proximity of fire stations to accident sites and evaluate emergency response coverage.
+This web mapping application visualizes traffic accidents, tunnels, road networks in Norway, along with fire station and hospital locations. The purpose is to analyze the proximity of fire stations to accident sites and evaluate emergency response coverage.
 
-By including road networks and tunnels, the application provides better insight into where accidents occur. The visualization makes it easier to identify accident prone areas in relation to transportation infrastructure. By combining traffic accidents with fire station locations and road network, users can explore the emergency response coverage and accesibility across all municipalities and counties.
+By including road networks and tunnels, the application provides better insight into where accidents occur. The visualization makes it easier to identify accident prone areas in relation to transportation infrastructure. By combining traffic accidents with fire station locations, hospitals and road network, users can explore the emergency response coverage and accesibility across all municipalities and counties.
 
-Due to lack of data on ambulance station locations, the emergency response coverage is based solely on fire stations.
+Due to lack of data on ambulance station locations, hospitals were used as an alternative to represent medical emergency response.
 
 ## Features
 
 - Display of polygons and points from 6 data sources
 - Municipality and county borders for geographic context
 - Clustered style for traffic accidents and fire stations
-- Click on a fire station and traffic accidents to view a popup with information
-- Sidebar to toggle visibility of traffic accidents and fire stations
+- Fire stations and hospitals displayed as points to show emergency response and availability
+- Click on fire stations, hospitals or traffic accidents to view a popup with information
+- Road network and tunnels displayed to show where accidents occur
+- Overview map in the bottom left corner for easy navigation
+- Table overview in the bottom right showing all datasets and their colors
 
 ## Overview of datasets
 
 - Municipalities - blue polygon
 - Counties - dark blue polygon
-- Traffic accidents - point
-- Firestations - red point
-- Road network
+- Traffic accidents - orange clustered point
+- Firestations - red clustered point
+- Hospitals - blue point
+- Road network - orange line
+- Tunnel - green line
 
 ## Data sources
 
@@ -36,7 +41,7 @@ Due to lack of data on ambulance station locations, the emergency response cover
 
 - Traffic accidents - https://kartkatalog.geonorge.no/metadata/trafikkulykker/2c47f033-b877-4885-a0ea-50333afd8fab?search=trafikk
 
-- Road network - https://www.geonorge.no/
+- Road network - https://wms.geonorge.no/skwms1/wms.vegnett2?service=WMS&request=GetCapabilities
 
 - Fire stations - https://kart.dsb.no/
 
